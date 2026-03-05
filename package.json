@@ -1,0 +1,66 @@
+{
+  "name": "@gesslar/vscode-theme-schema",
+  "version": "1.0.0",
+  "description": "You _can_ handle the truth, and VS Code will tell it to us.",
+  "keywords": [
+    "vscode",
+    "schema",
+    "theme",
+    "no",
+    "edgy",
+    "memelords",
+    "allowed"
+  ],
+  "homepage": "https://github.com/gesslar/vscode-theme-schema#readme",
+  "bugs": {
+    "url": "https://github.com/gesslar/vscode-theme-schema/issues"
+  },
+  "main": "./src/index.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    },
+    "./Validator": {
+      "types": "./types/Validator.d.ts",
+      "import": "./src/Validator.js",
+      "default": "./src/Validator.js"
+    },
+    "./VSCodeSchema": {
+      "types": "./types/VSCodeSchema.d.ts",
+      "import": "./src/VSCodeSchema.js",
+      "default": "./src/VSCodeSchema.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gesslar/vscode-theme-schema.git"
+  },
+  "license": "Unlicense",
+  "author": "gesslar",
+  "type": "module",
+  "scripts": {
+    "types": "node -e \"require('fs').rmSync('types',{recursive:true,force:true});\" && tsc -p tsconfig.types.json",
+    "prepublishOnly": "npm run types",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "submit": "npm publish --access public --//registry.npmjs.org/:_authToken=\"${NPM_ACCESS_TOKEN}\"",
+    "update": "npx npm-check-updates -u && npm install",
+    "pr": "gt submit -p --ai",
+    "patch": "npm version patch",
+    "minor": "npm version minor",
+    "major": "npm version major"
+  },
+  "devDependencies": {
+    "@gesslar/uglier": "^2.0.0",
+    "eslint": "^10.0.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@gesslar/toolkit": "^3.42.0",
+    "json5": "^2.2.3"
+  }
+}
