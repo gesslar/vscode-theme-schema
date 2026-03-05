@@ -60,7 +60,7 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@gesslar/toolkit": "^3.42.0",
+    "@gesslar/toolkit": "^4.0.0",
     "json5": "^2.2.3"
   },
   "engines": {
