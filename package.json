@@ -23,6 +23,11 @@
       "import": "./src/index.js",
       "default": "./src/index.js"
     },
+    "./JsonSource": {
+      "types": "./types/JsonSource.d.ts",
+      "import": "./src/JsonSource.js",
+      "default": "./src/JsonSource.js"
+    },
     "./Validator": {
       "types": "./types/Validator.d.ts",
       "import": "./src/Validator.js",
@@ -61,7 +66,8 @@
   },
   "dependencies": {
     "@gesslar/toolkit": "^4.0.0",
-    "json5": "^2.2.3"
+    "json5": "^2.2.3",
+    "jsonc-eslint-parser": "^3.1.0"
   },
   "engines": {
     "node": ">=24.13.0"
