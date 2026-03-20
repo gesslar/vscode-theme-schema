@@ -11,6 +11,7 @@ Utilities for VS Code extensions that need to load the built-in workbench color 
   - `alphaRequired`: whether a property requires alpha-enabled hex colors.
   - `sample`: example value (`#ffffff` or `#ffffffaa`).
 - Validates user color values, including schema pattern constraints and deprecation warnings.
+- Parses JSON/JSONC into an AST with full source-location mapping for jump-to-property/value navigation.
 
 ## Installation
 
@@ -73,6 +74,46 @@ type ValidationResult = {
 }
 ```
 
+### `JsonSource`
+
+Parses JSON/JSONC source text into an AST and builds a dotted-path → source-location map, enabling jump-to-property and jump-to-value navigation in VS Code extensions.
+
+- `new JsonSource(text: string, filePath?: string)`
+  - Parses source text and builds the internal location map.
+  - `filePath` is an optional label used in `formatLocation()` output.
+- `static async fromFile(file: FileObject, cwd?: DirectoryObject): Promise<JsonSource | null>`
+  - Factory for `FileObject` inputs (`.json`, `.jsonc`, `.json5`). Returns `null` for unsupported extensions or parse failures.
+- `getLocation(dottedPath: string): SourceLocation | null`
+  - Returns the `{line, column}` of the key for a dotted path.
+- `getValueLocation(dottedPath: string): SourceLocation | null`
+  - Returns the `{line, column}` of the value for a dotted path.
+- `formatLocation(dottedPath: string, target?: "key" | "value"): string | null`
+  - Returns a formatted `"file:line:column"` or `"line:column"` string.
+- `ast: object` — The raw `jsonc-eslint-parser` AST.
+- `filePath: string | null` — The label passed at construction.
+- `locationMap: Map<string, LocationEntry>` — The full path → location map.
+
+```js
+import {JsonSource} from "@gesslar/vscode-theme-schema"
+
+const src = new JsonSource(`{
+  "colors": {
+    "editor.background": "#1e1e1e"
+  }
+}`, "theme.json")
+
+src.formatLocation("colors.editor.background")          // "theme.json:3:5"
+src.formatLocation("colors.editor.background", "value")  // "theme.json:3:26"
+src.getLocation("colors.editor.background")              // { line: 3, column: 4 }
+```
+
+Location types:
+
+```ts
+type SourceLocation = { line: number; column: number }
+type LocationEntry = { key: SourceLocation; value: SourceLocation }
+```
+
 ## Runtime Notes
 
 - `VSCodeSchema.new()` depends on the `vscode` API and is intended to run inside the VS Code extension host.
@@ -92,8 +133,7 @@ npm run types      # regenerate declarations in types/
 
 ## License
 
-vscode-theme-schema is released into the public domain under the
-[Unlicense](UNLICENSE.txt).
+`@gesslar/vscode-theme-schema` is released into the public domain under the [Unlicense](UNLICENSE.txt).
 
 This package includes or depends on third-party components under their own
 licenses:
