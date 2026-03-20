@@ -101,6 +101,7 @@ export default class JsonSource {
 
   /**
    * Formats a location as "file:line:column" or "line:column" for display.
+   * Both line and column in the output are 1-based (CLI-style).
    *
    * @param {string} dottedPath - Dot-separated key path
    * @param {"key"|"value"} [target="key"] - Whether to locate the key or value
@@ -158,6 +159,8 @@ export default class JsonSource {
 
     if(root?.type === "JSONObjectExpression")
       this.#walkObject(root, [])
+    else if(root?.type === "JSONArrayExpression")
+      this.#walkArray(root, [])
   }
 
   /**
