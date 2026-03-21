@@ -48,6 +48,7 @@ export default class JsonSource {
     getValueLocation(dottedPath: string): SourceLocation | null;
     /**
      * Formats a location as "file:line:column" or "line:column" for display.
+     * Both line and column in the output are 1-based (CLI-style).
      *
      * @param {string} dottedPath - Dot-separated key path
      * @param {"key"|"value"} [target="key"] - Whether to locate the key or value
@@ -57,9 +58,9 @@ export default class JsonSource {
     /**
      * Gets the parsed AST.
      *
-     * @returns {object} The jsonc-eslint-parser AST
+     * @returns {import("jsonc-eslint-parser").AST.JSONProgram|null} The jsonc-eslint-parser AST
      */
-    get ast(): object;
+    get ast(): import("jsonc-eslint-parser").AST.JSONProgram | null;
     /**
      * Gets the file path associated with this source.
      *

@@ -1,11 +1,7 @@
 /**
- * Color validation module for Hex extension.
+ * Color validation module for VS Code theme schemas.
  *
  * @module Validator
- * @example
- * // In another file, reference these types in JSDoc:
- * // import('./Validator.js').ValidationResult
- * // import('./Validator.js').PropertySchema
  */
 /**
  * Result of validating a single color property.
@@ -36,7 +32,7 @@
  *
  * @typedef {object} PropertySchema
  * @property {string} [description] - Description of the color property
- * @property {SchemaPatternOption[]} [oneOf] - Array of pattern options to validate against
+ * @property {Array<SchemaPatternOption>} [oneOf] - Array of pattern options to validate against
  * @property {string} [deprecationMessage] - Deprecation message if property is deprecated
  */
 /**
@@ -50,9 +46,9 @@ export default class Validator {
      *
      * @param {Map<string, PropertySchema>} schema - Map of property names to their schema definitions
      * @param {Record<string, string>} userColors - Object of color property names to color values
-     * @returns {Promise<ValidationResult[]>} Array of validation results for each property
+     * @returns {Promise<Array<ValidationResult>>} Array of validation results for each property
      */
-    static validate(schema: Map<string, PropertySchema>, userColors: Record<string, string>): Promise<ValidationResult[]>;
+    static validate(schema: Map<string, PropertySchema>, userColors: Record<string, string>): Promise<Array<ValidationResult>>;
     /**
      * Regular expression for validating hex color formats.
      * Matches #RGB, #RGBA, #RRGGBB, and #RRGGBBAA.
@@ -64,7 +60,6 @@ export default class Validator {
     /**
      * Validates a single color property against its schema.
      *
-     * @param {string} _key - The property key (unused, for potential future logging)
      * @param {string} value - The color value to validate
      * @param {PropertySchema} propertySchema - The schema definition for this property
      * @returns {PropertyValidationResult} Validation result with isValid flag and optional error
@@ -134,7 +129,7 @@ export type PropertySchema = {
     /**
      * - Array of pattern options to validate against
      */
-    oneOf?: SchemaPatternOption[];
+    oneOf?: Array<SchemaPatternOption>;
     /**
      * - Deprecation message if property is deprecated
      */
