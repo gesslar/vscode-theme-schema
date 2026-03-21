@@ -62,7 +62,7 @@ export default class Validator {
           const propertySchema = schema.get(key)
 
           const validationResult =
-            this.#validateColorProperty(key, value, propertySchema)
+            this.#validateColorProperty(value, propertySchema)
 
           const isDeprecated = !!propertySchema.deprecationMessage
 
