@@ -59,7 +59,7 @@ export default class JsonSource {
   /** @type {Map<string, LocationEntry>} */
   #locationMap = new Map()
 
-  /** @type {object} */
+  /** @type {import("jsonc-eslint-parser").AST.JSONProgram|null} */
   #ast = null
 
   /** @type {string|null} */
@@ -125,7 +125,7 @@ export default class JsonSource {
   /**
    * Gets the parsed AST.
    *
-   * @returns {object} The jsonc-eslint-parser AST
+   * @returns {import("jsonc-eslint-parser").AST.JSONProgram|null} The jsonc-eslint-parser AST
    */
   get ast() {
     return this.#ast
@@ -166,7 +166,7 @@ export default class JsonSource {
   /**
    * Walks a JSONObjectExpression node, recording locations for each key.
    *
-   * @param {object} obj - JSONObjectExpression AST node
+   * @param {import("jsonc-eslint-parser").AST.JSONObjectExpression} obj - JSONObjectExpression AST node
    * @param {Array<string>} path - Current path segments
    * @private
    */
@@ -200,7 +200,7 @@ export default class JsonSource {
   /**
    * Walks a JSONArrayExpression node, recording locations for each element.
    *
-   * @param {object} arr - JSONArrayExpression AST node
+   * @param {import("jsonc-eslint-parser").AST.JSONArrayExpression} arr - JSONArrayExpression AST node
    * @param {Array<string>} path - Current path segments
    * @private
    */
