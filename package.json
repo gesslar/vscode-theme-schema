@@ -62,7 +62,7 @@
     "typescript": "^6.0.2"
   },
   "dependencies": {
-    "@gesslar/toolkit": "^4.4.0",
+    "@gesslar/toolkit": "^5.0.0",
     "json5": "^2.2.3",
     "jsonc-eslint-parser": "^3.1.0"
   },
