@@ -142,3 +142,4 @@ licenses:
 | --- | --- |
 | [@gesslar/toolkit](https://github.com/gesslar/toolkit) | 0BSD |
 | [json5](https://github.com/json5/json5) | MIT |
+| [jsonc-eslint-parser](https://github.com/ota-meshi/jsonc-eslint-parser) | MIT |
