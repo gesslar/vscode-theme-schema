@@ -41,7 +41,7 @@
     "type": "git",
     "url": "git+https://github.com/gesslar/vscode-theme-schema.git"
   },
-  "license": "Unlicense",
+  "license": "0BSD",
   "author": "gesslar",
   "type": "module",
   "scripts": {
@@ -57,12 +57,12 @@
     "major": "npm version major"
   },
   "devDependencies": {
-    "@gesslar/uglier": "^2.2.0",
-    "eslint": "^10.1.0",
+    "@gesslar/uglier": "^2.4.0",
+    "eslint": "^10.2.0",
     "typescript": "^6.0.2"
   },
   "dependencies": {
-    "@gesslar/toolkit": "^4.4.0",
+    "@gesslar/toolkit": "^5.0.1",
     "json5": "^2.2.3",
     "jsonc-eslint-parser": "^3.1.0"
   },

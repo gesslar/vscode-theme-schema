@@ -56,7 +56,7 @@ export default class Validator {
      * @type {RegExp}
      * @private
      */
-    private static "__#private@#colourHex";
+    private static #colourHex;
     /**
      * Validates a single color property against its schema.
      *
@@ -65,7 +65,7 @@ export default class Validator {
      * @returns {PropertyValidationResult} Validation result with isValid flag and optional error
      * @private
      */
-    private static "__#private@#validateColorProperty";
+    private static #validateColorProperty;
 }
 /**
  * Result of validating a single color property.
