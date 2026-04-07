@@ -133,13 +133,13 @@ npm run types      # regenerate declarations in types/
 
 ## License
 
-`@gesslar/vscode-theme-schema` is released into the public domain under the [Unlicense](UNLICENSE.txt).
+`@gesslar/vscode-theme-schema` is released into the public domain under the [0BSD](LICENSE.txt).
 
 This package includes or depends on third-party components under their own
 licenses:
 
 | Dependency | License |
 | --- | --- |
-| [@gesslar/toolkit](https://github.com/gesslar/toolkit) | Unlicense |
+| [@gesslar/toolkit](https://github.com/gesslar/toolkit) | 0BSD |
 | [json5](https://github.com/json5/json5) | MIT |
 | [jsonc-eslint-parser](https://github.com/ota-meshi/jsonc-eslint-parser) | MIT |
