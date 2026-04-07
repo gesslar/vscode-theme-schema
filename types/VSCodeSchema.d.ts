@@ -13,14 +13,14 @@ export default class VSCodeSchema {
      * @type {string}
      * @private
      */
-    private static "__#private@#schemaUri";
+    private static #schemaUri;
     /**
      * Cached singleton instance.
      *
      * @type {VSCodeSchema|null}
      * @private
      */
-    private static "__#private@#instance";
+    private static #instance;
     /**
      * Returns the singleton VSCodeSchema instance, creating it on first call
      * by fetching and parsing the workbench-colors schema from VS Code.
