@@ -133,7 +133,7 @@ npm run types      # regenerate declarations in types/
 
 ## License
 
-`@gesslar/vscode-theme-schema` is released into the public domain under the [0BSD](LICENSE.txt).
+`@gesslar/vscode-theme-schema` is released under the [0BSD](LICENSE.txt).
 
 This package includes or depends on third-party components under their own
 licenses:
